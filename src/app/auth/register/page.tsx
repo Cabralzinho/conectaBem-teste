@@ -5,7 +5,7 @@ import { FaRegQuestionCircle } from 'react-icons/fa';
 export default function register() {
   return (
     <main className="flex justify-center">
-      <div className="flex flex-col gap-8 w-full lg:max-w-[450px] justify-center">
+      <div className="flex flex-col gap-8 w-full md:max-w-[450px] justify-center">
         <WelcomeSectionHeader
           href="/auth"
           title="Tudo pronto para começar"
