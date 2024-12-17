@@ -2,21 +2,21 @@
 
 import { WelcomeSectionHeader } from '@/components/WelcomeSectionHeader';
 import { CodeForm } from '@/features/confirm-code/components/CodeForm';
-import { useSession } from '@/stores/useSession';
+// import { useSession } from '@/stores/useSession';
 import { Button } from '@mui/material';
 import { FaRegQuestionCircle } from 'react-icons/fa';
 
 export default function ConfirmCode() {
-  const { session } = useSession();
+  // const { session } = useSession();
 
-  console.log(session);
+  // console.log(session);
 
   return (
     <main className="flex justify-center">
       <div className="flex flex-col md:max-w-[450px] justify-center gap-8">
         <WelcomeSectionHeader
           href="/auth"
-          title={`Digite o código enviado para ${session?.email?.address}!`}
+          title={`Digite o código enviado para email@email.com!`}
         />
 
         <CodeForm />
