@@ -7,6 +7,6 @@ type SessionProps = {
   session: null | IJwt;
 };
 
-export const useSession = create<SessionProps>((set) => ({
+export const useSession = create<SessionProps>(() => ({
   session: jwtDecode(Cookies.get('authToken') || ''),
 }));

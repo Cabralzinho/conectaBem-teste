@@ -16,19 +16,19 @@ export const middleware = (request: NextRequest) => {
 
   const session: IJwt = jwtDecode(token);
 
-  // if (!session || session.exp < Date.now() / 1000) {
-  //   request.cookies.delete('authToken');
+  if (!session || session.exp < Date.now() / 1000) {
+    request.cookies.delete('authToken');
 
-  //   return NextResponse.redirect(new URL('/auth', request.url));
-  // }
+    return NextResponse.redirect(new URL('/auth', request.url));
+  }
 
-  // if (!session.email?.isConfirmed) {
-  //   if (targetPath !== '/auth/confirm-email') {
-  //     return NextResponse.redirect(new URL('/auth/confirm-email', request.url));
-  //   }
+  if (!session.email?.isConfirmed) {
+    if (targetPath !== '/auth/confirm-email') {
+      return NextResponse.redirect(new URL('/auth/confirm-email', request.url));
+    }
 
-  //   return;
-  // }
+    return;
+  }
 
   // if (!session.role) {
   //   if (targetPath !== '/auth/register') {

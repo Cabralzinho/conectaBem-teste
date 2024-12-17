@@ -49,7 +49,7 @@ export const CodeInput = ({
     <div className="flex w-full gap-4 text-center">
       {Array.from({ length: value.length }).map((_, index) => (
         <input
-          onClick={(e) => {
+          onClick={() => {
             const input = refs.current[index];
 
             setTimeout(() => {
