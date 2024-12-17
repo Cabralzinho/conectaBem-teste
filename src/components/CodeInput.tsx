@@ -63,6 +63,7 @@ export const CodeInput = ({
           value={value[index] || ''}
           key={index}
           className="px-2 py-6 rounded-lg w-full text-center border-2 border-inputCodeBorder focus:outline-inputCodeBorder text-inputCodeText font-bold"
+          type='number'
         />
       ))}
     </div>
