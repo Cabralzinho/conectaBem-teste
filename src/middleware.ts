@@ -1,6 +1,6 @@
-import { jwtDecode } from 'jwt-decode';
-import { NextRequest, NextResponse } from 'next/server';
-import { IJwt } from './types/auth';
+import { jwtDecode } from "jwt-decode";
+import { NextRequest, NextResponse } from "next/server";
+import { IJwt } from "./types/auth";
 
 export const middleware = (request: NextRequest) => {
   const token = request.cookies.get('authToken')?.value;
@@ -17,14 +17,14 @@ export const middleware = (request: NextRequest) => {
   const session: IJwt = jwtDecode(token);
 
   if (!session || session.exp < Date.now() / 1000) {
-    request.cookies.delete('authToken');
+    request.cookies.delete("authToken");
 
-    return NextResponse.redirect(new URL('/auth', request.url));
+    return NextResponse.redirect(new URL("/auth", request.url));
   }
 
   if (!session.email?.isConfirmed) {
-    if (targetPath !== '/auth/confirm-email') {
-      return NextResponse.redirect(new URL('/auth/confirm-email', request.url));
+    if (targetPath !== "/auth/confirm-email") {
+      return NextResponse.redirect(new URL("/auth/confirm-email", request.url));
     }
 
     return;
@@ -40,5 +40,5 @@ export const middleware = (request: NextRequest) => {
 };
 
 export const config = {
-  matcher: '/((?!api|static|...|_next).*)',
+  matcher: "/((?!api|static|...|_next).*)",
 };

@@ -1,4 +1,4 @@
-import { api } from '@/libs/api';
+// import { api } from '@/libs/api';
 import { useMutation } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
 
@@ -8,8 +8,8 @@ export const useCredentialLogin = () => {
   return useMutation({
     mutationFn: async ({ data }: Args) => {
       console.log(data);
-      const response = await api.post('/auth/google', data);
-      return response.data;
+      // const response = await api.post('/auth/google', data);
+      // return response.data;
     },
     onSuccess: () => {
       router.refresh();
