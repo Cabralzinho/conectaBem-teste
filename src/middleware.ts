@@ -1,34 +1,36 @@
-import { jwtDecode } from "jwt-decode";
-import { NextRequest, NextResponse } from "next/server";
-import { IJwt } from "./types/auth";
+// import { jwtDecode } from "jwt-decode";
+// import { NextRequest, NextResponse } from "next/server";
+// import { IJwt } from "./types/auth";
 
-export const middleware = (request: NextRequest) => {
-  const token = request.cookies.get('authToken')?.value;
-  const targetPath = request.nextUrl.pathname;
+// params(request: NextRequest)
 
-  if (!token) {
-    // if (targetPath !== '/auth') {
-    //   return NextResponse.redirect(new URL('/auth', request.url));
-    // }
+export const middleware = () => {
+  // const token = request.cookies.get('authToken')?.value;
+  // const targetPath = request.nextUrl.pathname;
 
-    return;
-  }
+  // if (!token) {
+  //   // if (targetPath !== '/auth') {
+  //   //   return NextResponse.redirect(new URL('/auth', request.url));
+  //   // }
 
-  const session: IJwt = jwtDecode(token);
+  //   return;
+  // }
 
-  if (!session || session.exp < Date.now() / 1000) {
-    request.cookies.delete("authToken");
+  // const session: IJwt = jwtDecode(token);
 
-    return NextResponse.redirect(new URL("/auth", request.url));
-  }
+  // if (!session || session.exp < Date.now() / 1000) {
+  //   request.cookies.delete("authToken");
 
-  if (!session.email?.isConfirmed) {
-    if (targetPath !== "/auth/confirm-email") {
-      return NextResponse.redirect(new URL("/auth/confirm-email", request.url));
-    }
+  //   return NextResponse.redirect(new URL("/auth", request.url));
+  // }
 
-    return;
-  }
+  // if (!session.email?.isConfirmed) {
+  //   if (targetPath !== "/auth/confirm-email") {
+  //     return NextResponse.redirect(new URL("/auth/confirm-email", request.url));
+  //   }
+
+  //   return;
+  // }
 
   // if (!session.role) {
   //   if (targetPath !== '/auth/register') {
