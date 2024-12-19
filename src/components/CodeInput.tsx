@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from "react";
 
 type CodeInputProps = {
   value: (string | null)[];
@@ -28,11 +28,11 @@ export const CodeInput = ({
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement>,
-    index: number,
+    index: number
   ) => {
     let formatedValue = e.target.value;
 
-    formatedValue = formatedValue[formatedValue.length - 1];
+    formatedValue = formatedValue.replace(/\D/g, "").slice(-1);
 
     const newValue = [
       ...value.slice(0, index),
@@ -45,25 +45,33 @@ export const CodeInput = ({
     refs.current[index + 1]?.focus();
   };
 
+  const handleClick = (index: number) => {
+    const input = refs.current[index];
+
+    if (!input) return;
+
+    setTimeout(() => {
+      input.type = "text";
+      input?.setSelectionRange(input.value.length, input.value.length);
+      input.type = "number";
+    }, 0);
+  };
+
   return (
     <div className="flex w-full gap-4 text-center">
       {Array.from({ length: value.length }).map((_, index) => (
         <input
-          onClick={() => {
-            const input = refs.current[index];
-
-            setTimeout(() => {
-              input?.setSelectionRange(input.value.length, input.value.length);
-            }, 0);
-          }}
+          onClick={() => handleClick(index)}
           onChange={(e) => handleChange(e, index)}
           ref={(ref) => {
             refs.current[index] = ref;
           }}
-          value={value[index] || ''}
+          value={value[index] || ""}
           key={index}
-          className="px-2 py-6 rounded-lg w-full text-center border-2 border-inputCodeBorder focus:outline-inputCodeBorder text-inputCodeText font-bold"
-          type='number'
+          className="px-2 py-6 rounded-lg w-full text-center border-2 
+          border-inputCodeBorder focus:outline-blue-600 text-inputCodeText 
+          font-bold transition-all"
+          type="number"
         />
       ))}
     </div>

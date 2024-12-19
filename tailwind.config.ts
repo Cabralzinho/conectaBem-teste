@@ -5,8 +5,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        teste: "#F3F5FA",
         button: '#D7FF7B',
-        inputCodeBorder: '#253E99',
+        "input-code-border": '#253E99',
         inputCodeText: "#9790A2"
       }
     }

@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { WelcomeSectionHeader } from '@/components/WelcomeSectionHeader';
-import { CodeForm } from '@/features/confirm-code/components/CodeForm';
+import { WelcomeSectionHeader } from "@/components/WelcomeSectionHeader";
+import { CodeForm } from "@/features/confirm-code/components/CodeForm";
 // import { useSession } from '@/stores/useSession';
-import { Button } from '@mui/material';
-import { FaRegQuestionCircle } from 'react-icons/fa';
+import { Button, Divider } from "@mui/material";
+import { FaRegQuestionCircle } from "react-icons/fa";
 
 export default function ConfirmCode() {
   // const { session } = useSession();
@@ -21,6 +21,8 @@ export default function ConfirmCode() {
 
         <CodeForm />
 
+        <Divider />
+
         <div className="flex flex-col gap-4 text-gray-600">
           <span className="">
             Não se esqueça de verificar sua caixa de spam, caso não encontre
@@ -31,17 +33,6 @@ export default function ConfirmCode() {
 
             <span className="">Precisa de ajuda?</span>
           </div>
-          <Button disabled className="rounded-lg w-full" variant="contained">
-            Confirmar código
-          </Button>
-          <Button
-            href="/auth"
-            className="text-center text-red-500"
-            variant="outlined"
-            color="error"
-          >
-            Sair
-          </Button>
         </div>
       </div>
     </main>

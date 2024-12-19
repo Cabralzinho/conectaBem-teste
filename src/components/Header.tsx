@@ -25,7 +25,7 @@ export const Header = () => {
           <Image src="/images/logo.svg" alt="logo" width={80} height={80} />
         </div>
       </div>
-      <ul className="hidden lg:flex w-full justify-end gap-8 text-black">
+      <ul className="hidden lg:flex w-full justify-end gap-8 text-gray-600">
         {menu.map((item) => (
           <li key={item.id} className="flex items-center gap-2 cursor-pointer">
             <span>{item.name}</span>

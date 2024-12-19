@@ -2,15 +2,15 @@
 
 import { Button } from '@mui/material';
 import { signIn } from 'next-auth/react';
-import { FaFacebook } from 'react-icons/fa';
+import Image from 'next/image';
 
 export default function FacebookSign() {
   return (
     <Button
-      className="text-black bg-white"
+      className="text-black bg-white text-sm "
       variant="outlined"
       size="large"
-      startIcon={<FaFacebook className="text-blue-600" />}
+      startIcon={<Image alt='google logo' src={'/images/facebook-logo.svg'} width={20} height={20} />}
       onClick={() => signIn('facebook')}
     >
       Entrar com o Facebook
