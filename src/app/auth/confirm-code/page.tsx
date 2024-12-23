@@ -1,7 +1,7 @@
 "use client";
 
 import { WelcomeSectionHeader } from "@/components/WelcomeSectionHeader";
-import { CodeForm } from "@/features/confirm-code/components/CodeForm";
+import { CodeForm } from "@/features/auth/components/CodeForm";
 // import { useSession } from '@/stores/useSession';
 import { Button, Divider } from "@mui/material";
 import { FaRegQuestionCircle } from "react-icons/fa";

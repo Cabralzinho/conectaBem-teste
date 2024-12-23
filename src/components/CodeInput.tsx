@@ -68,9 +68,7 @@ export const CodeInput = ({
           }}
           value={value[index] || ""}
           key={index}
-          className="px-2 py-6 rounded-lg w-full text-center border-2 
-          border-inputCodeBorder focus:outline-blue-600 text-inputCodeText 
-          font-bold transition-all"
+          className="px-2 py-6 rounded-lg w-full text-center border-2 border-input-code-border focus:outline-blue-600 text-inputCodeText font-bold transition-all"
           type="number"
         />
       ))}

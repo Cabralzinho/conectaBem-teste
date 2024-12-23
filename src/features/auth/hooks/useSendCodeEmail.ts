@@ -2,15 +2,15 @@
 import { useMutation } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
 
-const code = '1234';
+const codeTest = '1234';
 
-export const useCodeEmail = () => {
+export const useSendCodeEmail = () => {
   const router = useRouter();
   // const { session } = useSession();
 
   return useMutation({
-    mutationFn: async ({ data }: Args) => {
-      if (data.code !== code) {
+    mutationFn: async ({ code }: Data) => {
+      if (code !== codeTest) {
         throw new Error('Código inválido');
       }
     },
@@ -36,10 +36,4 @@ export const useCodeEmail = () => {
 
 type Data = {
   code: string;
-};
-
-type Args = {
-  data: Data;
-  onSucess?: () => void;
-  onError?: () => void;
 };
